@@ -1,0 +1,31 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+        $('#mycar').load("c.php")
+    </script>
+
+//////////////////////////////////////////////
+
+    if($_GET['tar']=='mydegs'){
+     $q="select * from degs";
+}elseif($_GET['tar']=='emp'){
+     $q="select * from names where deg=".$_GET['deg'];
+}
+var_dump($q);
+
+//////////////////////////////
+
+onload="fildeg()"
+
+<select name="emp" id="emp">
+
+            </select>
+
+function fildeg() {
+            console.log("fildeg");
+            $('#mydeg').load("c.php", 'tar=mydegs');
+        }
+        function ff() {
+            console.log("fildeg");
+            $('#emp').load("c.php", 'tar=emp&deg=' + $('#mydeg').val());
+        }
+
