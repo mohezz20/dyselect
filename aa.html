@@ -12,15 +12,22 @@
 <body>
     <div>
         <form action="a.php" method="get">
-            <select name="mycar" id="mycar" onchange="ff()">
+            <select name="mydeg" id="degs" onchange="ff()">
+                
+            </select>
+            <select name="emp" id="emps">
                 
             </select>
             
+            <input type="submit" value="any">
         </form>
     </div>
     <script>
-         $('#mycar').load("c.php");
-         
+         $('#degs').load("cc.php","tar=degs");
+         $('#emps').load("c.php","tar=emps&empdeg=" + 1 );
+        function ff(){
+            $('#emps').load("cc.php","tar=emps&empdeg=" + document.getElementById('degs').value );
+        }
     </script>
 
 </body>

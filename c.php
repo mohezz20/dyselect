@@ -1,19 +1,12 @@
 <?php
 $db= new mysqli("localhost","root","","dyselect");
-
-if($_GET['tar']=='degs'){
-     $q="select * from degs";
-}elseif($_GET['tar']=='emps'){
-   $q= "select * from names where deg=" . $_GET['empdeg'];  
-}
-
+$q= "select * from names ";
 
 $res= $db->query($q);
 
-
-while($row =$res->fetch_row())
+while($row =$res->fetch_assoc())
             {
-                 echo "<option value=".$row[0].">".$row[1]."</option>";
+                 echo "<option value=".$row['id'].">".$row['name']."</option>";
                  
             }
 ?>
